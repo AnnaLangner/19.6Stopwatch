@@ -22,6 +22,7 @@ class Stopwatch {
         return `${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
     }
 
+
     start() {
         if (!this.running) {
             this.running = true;
