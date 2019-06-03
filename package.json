@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "http-server",
+    "start": "npm run start:server && start:babel",
+    "start:server": "http-server",
+    "start:babel": "babel script.js --watch --out-file script-compiled.js",
     "test": "npm run test:html",
     "test:html": "globstar nu-html-checker *.html",
     "init-project": "npm install && npm-run-all init:*",
@@ -15,7 +17,7 @@
     "build:sass": "node-sass --output-style expanded --source-map true -o css sass",
     "watch": "npm-run-all -p watch:*",
     "watch:sassprefixer": "onchange -d 100 sass -- npm run watchsass",
-    "watch:sass": "npm run build:sass && npm run build:autoprefixer",
+    "watchsass": "npm run build:sass && npm run build:autoprefixer",
     "watch:browser-sync": "browser-sync start --server --files css/*.css *.html"
   },
   "repository": {
